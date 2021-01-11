@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { ChatComponent } from './home/chat/chat.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
+import { LoginComponent } from './views/auth/login/login.component';
+import { ChatComponent } from './views/home/chat/chat.component';
+import { RegistrationComponent } from './views/auth/registration/registration.component';
+import { SecureInnerPagesGuard } from './jwtAuth/secure-inner-pages.guard';
+import { AuthGuard } from './jwtAuth/auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: 'registration', component: RegistrationComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'registration', component: RegistrationComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

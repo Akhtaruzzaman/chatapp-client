@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/jwtAuth/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
-  constructor() { }
+  user;
+  constructor(private service_auth: AuthService) {
+    this.user = service_auth.getUserName;
+  }
 
   ngOnInit(): void {
   }

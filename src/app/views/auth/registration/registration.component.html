@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="offset-md-4 col-4">
+      <form #form="ngForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+        <h3 class="text-center">Registration</h3>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="reg_model.name" name="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="reg_model.email"
+            aria-describedby="emailHelp" required />
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="reg_model.password" required />
+        </div>
+        <div class="mb-3">
+          <label for="conf_password" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" name="confirm_password" [(ngModel)]="reg_model.confirm_password"
+            required />
+          <div *ngIf="(reg_model.confirm_password!=='') && (reg_model.password!=reg_model.confirm_password)"
+            class="text-danger">Password not matched</div>
+        </div>
+        <div class="text-center">
+          <input type='submit' class="btn btn-primary" value='Submit' />
+          <hr />
+          <a routerLink="/login">Already have a account</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

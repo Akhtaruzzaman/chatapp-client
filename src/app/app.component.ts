@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthGuard } from './jwtAuth/auth.guard';
+import { AuthService } from './jwtAuth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chat app';
+  user = localStorage.getItem("User");
+  loggedin = false;
+  constructor(private authservice: AuthService) {
+    this.loggedin = this.authservice.isLoggedIn;
+  }
+  logout() {
+    this.authservice.SignOut();
+  }
 }
