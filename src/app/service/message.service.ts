@@ -14,21 +14,16 @@ export class MessageService {
     }
     httpOptions = {
         headers: new HttpHeaders()
-          .set('Authorization',  'Bearer ' +this.auth_token)
-      }
+            .set('Authorization', 'Bearer ' + this.auth_token)
+    }
 
     _url_getuser = environment.apiBaseUrl + 'api/Message/GetUser';
     constructor(private _http: HttpClient) {
 
     }
     getUser() {
-        const httpOptions = {
-            headers: new HttpHeaders({
-              'Content-Type':  'application/json',
-              'Authorization': 'Bearer ' +this.auth_token
-            }),
-            queryParams: { returnUrl: "test"}
-          };
-        return this._http.get(this._url_getuser, httpOptions);
+        let headers = new HttpHeaders().append('Content-Type',  'application/json'); // create header object
+        headers = headers.append('Authorization', 'Bearer ' + this.auth_token);
+        return this._http.get<any[]>(this._url_getuser, { headers: headers });
     }
 }
