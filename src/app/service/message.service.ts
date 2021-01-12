@@ -15,8 +15,8 @@ export class MessageService {
     }
     _url_getuser = environment.apiBaseUrl + 'api/Message/GetUser';
     _url_getsendmessagebyuser = environment.apiBaseUrl + 'api/Message';
-    constructor(private _http: HttpClient) {
 
+    constructor(private _http: HttpClient) {
     }
     getUser() {
         return this._http.get<any>(this._url_getuser, this.httpOptions);

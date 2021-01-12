@@ -39,6 +39,7 @@ export class ChatComponent implements OnInit {
     this.service_message.getMessageByUser(userid).subscribe(data => {
       console.log("Success", data)
       this.usersmessage = data;
+      document.getElementById("scrollbottom")?.scrollIntoView();
     }, error => console.log("Error", error));
   }
 
@@ -49,7 +50,7 @@ export class ChatComponent implements OnInit {
         let msg = new MessageVM(new Date().toJSON(), '', '', false, this.messages, 1, '');
         this.usersmessage.push(msg);
         this.messages = '';
-        this.messagediv.nativeElement.scrollTop = this.messagediv.nativeElement.scrollHeight + 99999;
+        document.getElementById("scrollbottom")?.scrollIntoView();
       }, error => console.log("Error", error));
     }
   }
@@ -57,6 +58,7 @@ export class ChatComponent implements OnInit {
     this.service_message.deleteMessage(id).subscribe(data => {
       console.log("Success", data)
       this.deleteMsg(id);
+      document.getElementById("scrollbottom")?.scrollIntoView();
     }, error => console.log("Error", error));
   }
 

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiBaseUrl: 'https://localhost:44394/',
   token: '',
+  ws_url: 'https://localhost:44394/chat',
 };
 
 /*
