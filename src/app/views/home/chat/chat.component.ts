@@ -53,6 +53,12 @@ export class ChatComponent implements OnInit {
       }, error => console.log("Error", error));
     }
   }
+  deleteMessageByUser(id: string) {
+    this.service_message.deleteMessage(id).subscribe(data => {
+      console.log("Success", data)
+      this.deleteMsg(id);
+    }, error => console.log("Error", error));
+  }
 
   setactive(data: any, id: string) {
     if (id) {
@@ -81,5 +87,8 @@ export class ChatComponent implements OnInit {
         i++;
       });
     }
+  }
+  deleteMsg(id: string) {
+    this.usersmessage = this.usersmessage.filter(item => item.id !== id);
   }
 }

@@ -29,4 +29,9 @@ export class MessageService {
     SendMessage(model: SendMessageVM) {
         return this._http.post<any>(this._url_getsendmessagebyuser, model, { headers: this.httpOptions.headers });
     }
+    deleteMessage(userid: string) {
+        const params = new HttpParams()
+            .set('id', userid)
+        return this._http.delete<any>(this._url_getsendmessagebyuser, { headers: this.httpOptions.headers, params: params });
+    }
 }

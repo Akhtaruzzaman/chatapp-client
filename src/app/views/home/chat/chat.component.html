@@ -48,9 +48,13 @@
             </div>
             <div *ngIf="!message.incomming">
               <div class="outgoing_msg">
+
                 <div class="sent_msg">
+
                   <p>{{message.message}}</p>
-                  <span class="time_date"> {{message.createdAt}}</span>
+                  <span class="time_date"> <span class="cursor-p fa fa-trash-o text-danger"
+                      (click)="deleteMessageByUser(message.id)" title="Click here to delete"></span>
+                    {{message.createdAt}}</span>
                 </div>
               </div>
             </div>
