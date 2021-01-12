@@ -49,7 +49,7 @@ export class ChatComponent implements OnInit {
         let msg = new MessageVM(new Date().toJSON(), '', '', false, this.messages, 1, '');
         this.usersmessage.push(msg);
         this.messages = '';
-        this.messagediv.nativeElement.scrollTop = this.messagediv.nativeElement.scrollHeight;
+        this.messagediv.nativeElement.scrollTop = this.messagediv.nativeElement.scrollHeight + 99999;
       }, error => console.log("Error", error));
     }
   }
@@ -81,7 +81,5 @@ export class ChatComponent implements OnInit {
         i++;
       });
     }
-
-    this.messagediv.nativeElement.scrollTop = this.messagediv.nativeElement.scrollHeight;
   }
 }
