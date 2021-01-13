@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
         console.log("Success", data)
         localStorage.setItem("Token", "Bearer " + data.token);
         localStorage.setItem("User", data.userName);
+        localStorage.setItem("UserId", data.id);
         this.router.navigateByUrl('/chat');
       }, error => console.log("Error", error));
     }

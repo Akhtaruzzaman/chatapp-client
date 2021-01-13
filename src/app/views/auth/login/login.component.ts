@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem("Token", "");
     localStorage.setItem("User", "");
+    localStorage.setItem("UserId", "");
   }
   submitted = false;
 
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       console.log("Success", data)
       localStorage.setItem("Token", "Bearer " + data.token);
       localStorage.setItem("User", data.userName);
+      localStorage.setItem("UserId", data.id);
       this.router.navigateByUrl('/chat');
     }, error => {
       console.log("Error", error)
