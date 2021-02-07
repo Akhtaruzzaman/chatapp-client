@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://localhost:44394/',
+  apiBaseUrl: 'https://raju-chatappserver.azurewebsites.net/',
   token: '',
-  ws_url: 'https://localhost:44394/chat',
+  ws_url: 'https://raju-chatappserver.azurewebsites.net/chat',
 };
 
 /*
